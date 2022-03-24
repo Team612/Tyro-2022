@@ -11,7 +11,7 @@ import frc.robot.Constants;
 public class LimitSwitches extends SubsystemBase {
   
   public final DigitalInput limit_switch_zero;
-  public static final DigitalInput limit_switch_one;
+  public final DigitalInput limit_switch_one;
   
   /** Creates a new LimitSwitches. */
   public LimitSwitches() {
