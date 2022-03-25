@@ -4,22 +4,21 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Belt extends SubsystemBase {
 
-  private final CANSparkMax spark_belt;
+  private final WPI_TalonSRX spark_belt;
 
   /** Creates a new Belt. */
   public Belt() {
-    spark_belt = new CANSparkMax(Constants.BELT_MOTOR, MotorType.kBrushless);
+    spark_belt = new WPI_TalonSRX(Constants.BELT_MOTOR);
   }
   
-  public CANSparkMax getBelt() {
+  public WPI_TalonSRX getBelt() {
     return spark_belt; 
   }
 

@@ -14,25 +14,25 @@ package frc.robot;
  */
 public final class Constants {
 
-    public static int FLYWHEEL_MOTOR = 10;
-    public static int BELT_MOTOR = 13;
-    public static int PIVOT_MOTOR = 14; 
+    public static int FLYWHEEL_MOTOR = 1;
+    public static int BELT_MOTOR = 3;
+    public static int PIVOT_MOTOR = 2; 
 
-    public static int DRIVER_PORT = 0;
-    public static int GUNNER_PORT = 1;  
+    public static int DRIVER_PORT = 1;
+    public static int GUNNER_PORT = 0;  
     public static int DRIVER_JOYSTICK_PORT = 4;
     public static int LEFT_SERVO_PORT = 0;
     public static int RIGHT_SERVO_PORT = 1;
 
     //drivetrain
-    public static int SPARK_FL = 0;
-    public static int SPARK_BL = 0;
-    public static int SPARK_FR = 0;
-    public static int SPARK_BR = 0;
+    public static int SPARK_FL = 6;
+    public static int SPARK_BL = 7;
+    public static int SPARK_FR = 4;
+    public static int SPARK_BR = 5;
 
     //limit switch ports
     public static int LIMIT_SWITCH_ZERO = 0;
-    public static int LIMIT_SWITCH_ONE = 0;
+    public static int LIMIT_SWITCH_ONE = 1;
 
     //servo values for DefaultDrive. not sure what their purpose is
     public static int LEFT_SERVO_VALUE = 72;

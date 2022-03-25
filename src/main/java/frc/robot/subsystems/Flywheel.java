@@ -4,24 +4,23 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Flywheel extends SubsystemBase {
   
-  final CANSparkMax spark_fly; 
+  final WPI_TalonSRX spark_fly; 
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
   /** Creates a new Flywheel. */
   public Flywheel() {
-    spark_fly = new CANSparkMax(Constants.FLYWHEEL_MOTOR, MotorType.kBrushless);
+    spark_fly = new WPI_TalonSRX(Constants.FLYWHEEL_MOTOR);
   }
 
-  public final CANSparkMax getFlyWheelSPark() {
+  public final WPI_TalonSRX getFlyWheelSPark() {
     return spark_fly;
   }
 

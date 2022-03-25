@@ -4,22 +4,21 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Pivot extends SubsystemBase {
 
-private CANSparkMax spark_pivot;
+private WPI_TalonSRX spark_pivot;
 
   /** Creates a new Pivot. */
   public Pivot() {
-    spark_pivot = new CANSparkMax(Constants.PIVOT_MOTOR, MotorType.kBrushless);
+    spark_pivot = new WPI_TalonSRX(Constants.PIVOT_MOTOR);
   }
 
-  public CANSparkMax getPivot() {
+  public WPI_TalonSRX getPivot() {
     return spark_pivot;
   }
 

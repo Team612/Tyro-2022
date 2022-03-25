@@ -4,7 +4,9 @@
 
 package frc.robot;
 
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -18,6 +20,8 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+  public final Ultrasonic ultrasonic1 = new Ultrasonic(0, 1);
+  public final Ultrasonic ultrasonic2 = new Ultrasonic(8, 9);
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -25,6 +29,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    ultrasonic1.setEnabled(true);
+    ultrasonic2.setEnabled(true);
+
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
@@ -39,6 +46,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    System.out.println(ultrasonic1.isRangeValid());
+    System.out.println(ultrasonic2.isRangeValid());
+    System.out.println("#1: " + ultrasonic1.getRangeInches());
+    System.out.println("#2: " + ultrasonic2.getRangeInches());
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic

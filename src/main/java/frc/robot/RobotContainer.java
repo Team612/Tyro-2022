@@ -6,7 +6,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.DefaultBelt;
+import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.DefaultFly;
+import frc.robot.commands.DefaultPivot;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.controls.ControlMap;
 import frc.robot.subsystems.Belt;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -34,7 +39,11 @@ public class RobotContainer {
 
   //command declarations
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
+  private final DefaultDrive m_DefaultDrive = new DefaultDrive(m_drivetrain);
+  private final DefaultPivot m_DefaultPivot = new DefaultPivot(m_pivot, m_limitSwitches);
+  private final DefaultFly m_DefaultFly = new DefaultFly(m_flywheel);
+  private final DefaultBelt m_DefaultBelt = new DefaultBelt(m_belt);
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -48,7 +57,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {}
-
+    ControlMap.gunner_button_A.whileHeld(new DefaultPivot(m_pivot, m_limitSwitches));
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *

@@ -14,11 +14,12 @@ public class LimitSwitches extends SubsystemBase {
   public final DigitalInput limit_switch_one;
   
   /** Creates a new LimitSwitches. */
+  
   public LimitSwitches() {
 
     limit_switch_zero = new DigitalInput(Constants.LIMIT_SWITCH_ZERO);
     limit_switch_one = new DigitalInput(Constants.LIMIT_SWITCH_ONE);
-  }
+  } 
 
   @Override
   public void periodic() {
