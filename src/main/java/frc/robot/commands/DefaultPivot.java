@@ -13,13 +13,11 @@ public class DefaultPivot extends CommandBase {
   /** Creates a new DefaultPivot. */
 
   Pivot m_pivot;
-  LimitSwitches m_LimitSwitches;
 
-  public DefaultPivot(Pivot pivot, LimitSwitches LimitSwitches) {
+  public DefaultPivot(Pivot pivot) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_pivot = pivot;
-    m_LimitSwitches = LimitSwitches;
-    addRequirements(m_pivot, m_LimitSwitches);
+    addRequirements(m_pivot);
   }
 
   // Called when the command is initially scheduled.
@@ -30,21 +28,9 @@ public class DefaultPivot extends CommandBase {
   @Override
   public void execute() {
 
-    double rightJoystickValue = ControlMap.gunner.getRightY();
+    double rightJoystickValue = ControlMap.gunner.getLeftY();
     
-    if(Math.abs(rightJoystickValue) < .1){
-      m_pivot.getPivot().set(0);
-    } 
-    else {
-      m_pivot.getPivot().set(rightJoystickValue);
-    }
-    
-    if(m_LimitSwitches.limit_switch_zero.get() && rightJoystickValue < -0.1){
-      m_pivot.getPivot().set(0);
-    }
-    if(m_LimitSwitches.limit_switch_one.get() && rightJoystickValue > 0.1) {
-      m_pivot.getPivot().set(0);
-    }
+    m_pivot.set(rightJoystickValue * .5);
 
   }
 

@@ -46,10 +46,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    System.out.println(ultrasonic1.isRangeValid());
-    System.out.println(ultrasonic2.isRangeValid());
-    System.out.println("#1: " + ultrasonic1.getRangeInches());
-    System.out.println("#2: " + ultrasonic2.getRangeInches());
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic

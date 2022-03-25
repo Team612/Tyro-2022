@@ -30,24 +30,22 @@ public class RobotContainer {
 
 
   // subsystem declarations
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final Belt m_belt = new Belt();
   private final Drivetrain m_drivetrain = new Drivetrain();
   private final Flywheel m_flywheel = new Flywheel();
-  private final LimitSwitches m_limitSwitches = new LimitSwitches();
   private final Pivot m_pivot = new Pivot();
 
   //command declarations
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final DefaultDrive m_DefaultDrive = new DefaultDrive(m_drivetrain);
-  private final DefaultPivot m_DefaultPivot = new DefaultPivot(m_pivot, m_limitSwitches);
-  private final DefaultFly m_DefaultFly = new DefaultFly(m_flywheel);
+  private final DefaultPivot m_DefaultPivot = new DefaultPivot(m_pivot);
+  private final DefaultFly m_DefaultFly = new DefaultFly(m_flywheel, m_belt);
   private final DefaultBelt m_DefaultBelt = new DefaultBelt(m_belt);
   
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the button bindings
+    // Configure the button bindings 
     configureButtonBindings();
+    configureDefaultCommands();
   }
 
   /**
@@ -56,8 +54,17 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
-    ControlMap.gunner_button_A.whileHeld(new DefaultPivot(m_pivot, m_limitSwitches));
+  private void configureButtonBindings() {
+    
+  }
+
+  private void configureDefaultCommands(){
+    m_drivetrain.setDefaultCommand(m_DefaultDrive);
+    m_belt.setDefaultCommand(m_DefaultBelt);
+    m_flywheel.setDefaultCommand(m_DefaultFly);
+    m_pivot.setDefaultCommand(m_DefaultPivot);
+  }
+    
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
@@ -65,6 +72,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return null;
   }
 }

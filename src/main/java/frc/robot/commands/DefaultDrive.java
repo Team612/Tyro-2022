@@ -35,27 +35,8 @@ public class DefaultDrive extends CommandBase {
   @Override
   public void execute() {
 
-    if (Math.abs(ControlMap.driver.getLeftY()) < .1) {
-      m_drivetrain.getTalonLeft(0).set(0);
-      m_drivetrain.getTalonLeft(1).set(0);
-    } 
-    else {
-      m_drivetrain.getTalonLeft(0).set(ControlMap.driver.getLeftY());
-      m_drivetrain.getTalonLeft(1).set(ControlMap.driver.getLeftY());
-    }
 
-    if (Math.abs(ControlMap.driver.getRightY()) < .1){ 
-      m_drivetrain.getTalonRight(1).set(0);
-      m_drivetrain.getTalonRight(0).set(0);
-    } 
-    else{
-      m_drivetrain.getTalonRight(0).set(ControlMap.driver.getRightY());
-      m_drivetrain.getTalonRight(1).set(ControlMap.driver.getRightY());
-    }
 
-    Drivetrain.rightServo.setAngle(right_servo_value);
-    System.out.println("Right Servo Value: " + right_servo_value);
-    System.out.println("Left Servo Value: " + left_servo_value);
   }
 
 

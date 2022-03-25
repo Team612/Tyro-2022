@@ -22,6 +22,10 @@ private WPI_TalonSRX spark_pivot;
     return spark_pivot;
   }
 
+  public void set(double speed){
+    spark_pivot.set(speed);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

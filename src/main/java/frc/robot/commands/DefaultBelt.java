@@ -30,7 +30,8 @@ public class DefaultBelt extends CommandBase {
 
     //turn when the right joystick button starts:
 
-    if (ControlMap.driver_button_RB.get()) {
+    if (ControlMap.gunner_button_RB.get()) {
+      System.out.println("yay we work");
       m_belt.getBelt().set(-0.25);
     }
     
